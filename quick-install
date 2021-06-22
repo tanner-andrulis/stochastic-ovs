@@ -1,4 +1,5 @@
 # Build
+cp ofproto-dpif-xlate.c ovs/ofproto/ofproto-dpif-xlate.c
 cd ovs
 ./boot.sh
 ./configure
