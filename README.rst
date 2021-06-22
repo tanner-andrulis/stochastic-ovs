@@ -95,8 +95,8 @@ builds the exercise topology and starts Mininet.
 
 ::
 
-    cd examples
-    ./topology.py
+    cd example
+    ./build_topology.py
 
 Run the Bash script in the examples directory. This script creates the
 two flows for packets to traverse. Pay special attention to line 3 of
@@ -104,7 +104,7 @@ script.sh. This line invokes stochastic switching.
 
 ::
 
-    sh script.sh
+    sh add_flows.sh
 
 Open an Xterm window for host h0 and h9.
 
