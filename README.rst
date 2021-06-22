@@ -26,7 +26,12 @@ Installation
 Custom Installation
 -----------------
 Copy ofproto-dpif-xlate.c to the ovs/ofproto directory, then follow the installation
-instructions on the Open vSwitch website [#ovs]_.
+instructions on the Open vSwitch website [#ovs]_. Clone this repository with the following command.
+
+::
+
+    git clone --recurse-submodules git://github.com/tanner-andrulis/stochastic-ovs.git
+
 
 Quick Installation
 ------------------
@@ -38,7 +43,7 @@ To run quick install, issue:
 ::
 
     sudo -s
-    git clone git://github.com/tanner-andrulis/stochastic-ovs.git
+    git clone --recurse-submodules git://github.com/tanner-andrulis/stochastic-ovs.git
     chmod -R 700 stochastic-ovs
     cd stochastic-ovs
     ./quick-install
