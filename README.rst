@@ -23,9 +23,19 @@ vSwitch v2.15.0.
 Installation
 ============
 
-For full installation instructions, refer to the Open vSwitch
-installation instructions on their main website [#ovs]_. I have also included a
-quick-install script that installs on Linux systems with default
+Custom Installation
+-----------------
+Copy ofproto-dpif-xlate.c to the ovs/ofproto directory, then follow the installation
+instructions on the Open vSwitch website [#ovs]_. Clone this repository with the following command.
+
+::
+
+    git clone --recurse-submodules git://github.com/tanner-andrulis/stochastic-ovs.git
+
+
+Quick Installation
+------------------
+The quick-install script installs on Linux systems with default
 options. Quick install is tested and working on the Mininet v2.3.0 [#mininet]_ virtual machine.
 
 To run quick install, issue:
@@ -33,7 +43,7 @@ To run quick install, issue:
 ::
 
     sudo -s
-    git clone git://github.com/tanner-andrulis/stochastic-ovs.git
+    git clone --recurse-submodules git://github.com/tanner-andrulis/stochastic-ovs.git
     chmod -R 700 stochastic-ovs
     cd stochastic-ovs
     ./quick-install
@@ -85,8 +95,8 @@ builds the exercise topology and starts Mininet.
 
 ::
 
-    cd examples
-    ./topology.py
+    cd example
+    ./build_topology.py
 
 Run the Bash script in the examples directory. This script creates the
 two flows for packets to traverse. Pay special attention to line 3 of
@@ -94,7 +104,7 @@ script.sh. This line invokes stochastic switching.
 
 ::
 
-    sh script.sh
+    sh add_flows.sh
 
 Open an Xterm window for host h0 and h9.
 
