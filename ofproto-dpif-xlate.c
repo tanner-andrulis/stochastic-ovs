@@ -4698,14 +4698,11 @@ pick_select_group(struct xlate_ctx *ctx, struct group_dpif *group)
         return pick_default_select_group(ctx, group);
         break;
     case SEL_METHOD_HASH:
-        if(group->up.props.selection_method_param == 58) {
-            ctx->xout->slow |= SLOW_ACTION;
-            return group_stochastic_live_bucket(ctx, group);
-        }
         return pick_hash_fields_select_group(ctx, group);
         break;
     case SEL_METHOD_DP_HASH:
-        return pick_dp_hash_select_group(ctx, group);
+        ctx->xout->slow |= SLOW_ACTION;
+        return group_stochastic_live_bucket(ctx, group);
         break;
     default:
         /* Parsing of groups ensures this never happens */
