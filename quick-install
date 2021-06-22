@@ -1,0 +1,30 @@
+# Build
+cd ovs
+./boot.sh
+./configure
+make
+
+# Remove previous and install
+apt-get remove openvswitch-common openvswitch-datapath-dkms openvswitch-controller openvswitch-pki openvswitch-switch
+make install
+
+
+# Replace previous version
+config_file="/etc/depmod.d/openvswitch.conf"
+for module in datapath/linux/*.ko; do
+modname="$(basename ${module})"
+echo "override ${modname%.ko} * extra" >> "$config_file"
+echo "override ${modname%.ko} * weak-updates" >> "$config_file"
+done
+depmod -a
+
+
+# Load kernel modules and show loaded version
+/sbin/modprobe openvswitch
+/sbin/lsmod | grep openvswitch
+
+# Start daemon
+export PATH=$PATH:/usr/local/share/openvswitch/scripts
+ovs-ctl stop
+ovs-ctl start
+ovs-ctl status
