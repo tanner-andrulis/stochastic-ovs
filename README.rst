@@ -23,9 +23,14 @@ vSwitch v2.15.0.
 Installation
 ============
 
-For full installation instructions, refer to the Open vSwitch
-installation instructions on their main website [#ovs]_. I have also included a
-quick-install script that installs on Linux systems with default
+Custom Installation
+-----------------
+Copy ofproto-dpif-xlate.c to the ovs/ofproto directory, then follow the installation
+instructions on the Open vSwitch website [#ovs]_.
+
+Quick Installation
+------------------
+The quick-install script installs on Linux systems with default
 options. Quick install is tested and working on the Mininet v2.3.0 [#mininet]_ virtual machine.
 
 To run quick install, issue:
