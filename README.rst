@@ -104,7 +104,7 @@ script.sh. This line invokes stochastic switching.
 
 ::
 
-    sh add_flows.sh
+    sh ./add_flows.sh
 
 Open an Xterm window for host h0 and h9.
 
