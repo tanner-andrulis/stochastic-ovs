@@ -13,7 +13,7 @@ very large number of flows are required to ensure proper balancing. This
 scales very poorly for simulators.
 
 Stochastic Packet Switching is a quick-and-dirty method to solve this
-issue. It implements stochastic switching in the hash method of Open
+issue. It implements stochastic switching in the dp_hash method of Open
 vSwitch switches [#fieldlist]_.
 
 This version is based off Salahuddin's Stochastic Switching
@@ -60,15 +60,16 @@ Open vSwitch daemon can be started as usual.
     ovs-ctl stop
     ovs-ctl start
 
-Buckets are set to use stochastic switching by using the hash selection
-method with selection\_method\_param set to 58 when setting up an Open
-vSwitch group. 58 is chosen as a magic number, and any other number will
-preserve the original behavior of the Open vSwitch hash. Specificially,
-your group initialization should include the following:
+Buckets are set to use stochastic switching by using the default dp_hash selection
+method. As this is the default selection method for Open vSwitch routers,
+creating any select group will default to stochastic switching [#bugmaybe]_.
+
+To force a dp_hash / stochastic selection method, ensure the following is in your
+group declaration.
 
 ::
 
-    type=select,selection_method=hash,selection_method_param=58
+    type=select,selection_method=dp_hash
 
 Testing Stochastic Packet Switching on Mininet
 ==============================================
@@ -144,6 +145,8 @@ All sites accessed 6/22/2021
 .. [#fieldlist] Field list section can be found in the ovs-fields section of the Open vSwitch man pages https://www.openvswitch.org/support/dist-docs/
 
 .. [#Salahuddin] https://github.com/saeenali/openvswitch/
+
+.. [#bugmaybe] Additionally, I believe there is a bug in the current Open vSwitch version that makes dp_hash the only available selection method. If this is the case, any and all select groups will use stochastic switching.
 
 .. [#mininet] http://mininet.org/
 
