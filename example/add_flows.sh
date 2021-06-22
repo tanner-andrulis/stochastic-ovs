@@ -1,6 +1,6 @@
 # ADD-GROUP at s7 for [0, 9]
  
-ovs-ofctl -O OpenFlow13 add-group tcp:127.0.0.1:6641 group_id=0,type=select,selection_method=hash,selection_method_param=58,bucket=weight:65,mod_dl_src:0A:00:14:01:00:05,mod_dl_dst:0A:00:14:FE:00:02,output=5,bucket=weight:35,mod_dl_src:0A:00:13:01:00:04,mod_dl_dst:0A:00:13:FE:00:02,output=4
+ovs-ofctl -O OpenFlow13 add-group tcp:127.0.0.1:6641 group_id=0,type=select,bucket=weight:65,mod_dl_src:0A:00:14:01:00:05,mod_dl_dst:0A:00:14:FE:00:02,output=5,bucket=weight:35,mod_dl_src:0A:00:13:01:00:04,mod_dl_dst:0A:00:13:FE:00:02,output=4
  
 # ADD-FLOW(s) for [0, 9] at [0, 2, 3, 6, 7, 8, 9]
  
