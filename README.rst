@@ -134,7 +134,7 @@ packets, while port 5 sends 65%.
 
 ::
 
-    sh ovs-ofctl dump-ports s7 -O OpenFlow13
+    sh ovs-ofctl dump-ports s7 -O OpenFlow15
 
 References
 ==========
