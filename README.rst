@@ -62,7 +62,7 @@ Open vSwitch daemon can be started as usual.
 
 Buckets are set to use stochastic switching by using the default dp_hash selection
 method. As this is the default selection method for Open vSwitch routers,
-creating any select group will default to stochastic switching [#bugmaybe]_.
+creating any select group will default to stochastic switching [#of15note]_.
 
 To force a dp_hash / stochastic selection method, ensure the following is in your
 group declaration.
@@ -146,7 +146,7 @@ All sites accessed 6/22/2021
 
 .. [#Salahuddin] https://github.com/saeenali/openvswitch/
 
-.. [#bugmaybe] Additionally, I believe there is a bug in the current Open vSwitch version that makes dp_hash the only available selection method. If this is the case, any and all select groups will use stochastic switching.
+.. [#of15note] Additionally, if you're running OpenFlow versions before 15, dp_hash is the only option available. OpenFlow versions can be specified in the command line call to add groups, e.g. "ovs-ofctl -O OpenFlow15"
 
 .. [#mininet] http://mininet.org/
 
