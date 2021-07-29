@@ -135,6 +135,10 @@ packets, while port 5 sends 65%.
 ::
 
     sh ovs-ofctl dump-ports s7 -O OpenFlow15
+    
+Performance
+===========
+Stochastic OVS incurs a considerable overhead compared to standard Open vSwitch. For a much faster equivalent with negligible overhead, see https://github.com/tanner-andrulis/Weighted-Tunnels
 
 References
 ==========
@@ -154,7 +158,12 @@ All sites accessed 6/22/2021
 
 License
 =======
+Note from Tanner
+----------------
+Below is copied from the Open vSwitch license, and covers all in the ovs/ directory. All other files are licensed under Apache 2 as well.
 
+Open vSwitch License
+--------------------
 The following is a summary of the licensing of files in this
 distribution. As mentioned, Open vSwitch is licensed under the open
 source Apache 2 license. Some files may be marked specifically with a
